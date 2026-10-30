@@ -1,0 +1,338 @@
+
+:root {
+  color-scheme: light;
+  --background: #f6f1e8;
+  --surface: #ffffff;
+  --text: #30372f;
+  --accent: #b7c6ae;
+  --muted: #65745f;
+  --border: #d9dfd4;
+  --button-text: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem 5%;
+  background: var(--surface);
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navigation a {
+  text-decoration: none;
+}
+
+.navigation a:hover,
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.menu-toggle {
+  display: none;
+  padding: 0.5rem;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 32rem;
+  padding: 4rem 7%;
+  background: var(--background);
+}
+
+.hero > p:first-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+  letter-spacing: 0.12em;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: anywhere;
+}
+
+h1 {
+  max-width: 12ch;
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  line-height: 1.1;
+}
+
+.hero > p:not(:first-child) {
+  max-width: 38rem;
+  margin: 0;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  padding: 0.9rem 1.5rem;
+  border: 0;
+  border-radius: 0.6rem;
+  background: var(--text);
+  color: var(--button-text);
+  font: inherit;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.section {
+  padding: 4rem 7%;
+}
+
+.section h2 {
+  margin: 0 0 2rem;
+  font-family: Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1.2;
+}
+
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.practice-card {
+  min-width: 0;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+}
+
+.practice-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.5rem;
+}
+
+.practice-card p {
+  margin: 0.4rem 0;
+}
+
+.booking-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1rem;
+  max-width: 48rem;
+}
+
+.booking-form label {
+  align-self: end;
+  font-weight: 600;
+}
+
+.booking-form input,
+.booking-form select {
+  width: 100%;
+  min-width: 0;
+  padding: 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+.booking-form .button {
+  grid-column: 1 / -1;
+  margin-top: 0.5rem;
+}
+
+.site-footer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding: 3rem 7%;
+  background: #47624f;
+  color: #f6f1e8;
+}
+
+.site-footer h2 {
+  margin: 0;
+}
+
+.site-footer a {
+  width: fit-content;
+}
+
+.site-footer button {
+  justify-self: start;
+  max-width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #f6f1e8;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: #f6f1e8;
+  font: inherit;
+  cursor: pointer;
+}
+
+.site-footer > p:last-of-type {
+  align-self: end;
+}
+
+/* Tablet and mobile layout */
+@media (max-width: 767px) {
+  .site-header {
+    position: relative;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1rem 5%;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navigation {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0;
+  }
+
+  .navigation.is-open {
+    display: flex;
+  }
+
+  .navigation a {
+    padding: 0.75rem 0;
+  }
+
+  .hero {
+    min-height: auto;
+    gap: 1rem;
+    padding: 3rem 5%;
+  }
+
+  h1 {
+    max-width: 100%;
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+
+  .hero .button {
+    width: 100%;
+  }
+
+  .section {
+    padding: 3rem 5%;
+  }
+
+  .section h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .practice-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .practice-card {
+    padding: 1.25rem;
+  }
+
+  .booking-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .booking-form .button {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .site-footer {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    padding: 2rem 5%;
+  }
+}
+
+/* Required desktop breakpoint */
+@media (min-width: 1024px) {
+  .hero {
+    padding-right: 10%;
+    padding-left: 10%;
+  }
+}
+
+/* Dark theme */
+body.dark-theme {
+  color-scheme: dark;
+  --background: #20251f;
+  --surface: #2d342c;
+  --text: #f6f1e8;
+  --accent: #b7c6ae;
+  --muted: #c0cbb9;
+  --border: #485047;
+  --button-text: #20251f;
+}
+
+body.dark-theme .button {
+  background: var(--accent);
+  color: var(--button-text);
+}
+
+body.dark-theme .site-footer {
+  background: #171b17;
+}
